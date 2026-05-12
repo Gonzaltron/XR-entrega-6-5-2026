@@ -18,7 +18,7 @@ public sealed class TouchColorChanger : MonoBehaviour
     private MaterialPropertyBlock propertyBlock;
     private Color initialColor = Color.white;
     private int activeHoverCount;
-
+    [SerializeField] CountManager countManager;
     private static readonly int BaseColorId = Shader.PropertyToID("_BaseColor");
     private static readonly int ColorId = Shader.PropertyToID("_Color");
 
@@ -50,6 +50,8 @@ public sealed class TouchColorChanger : MonoBehaviour
         Debug.Log("Hola");
         activeHoverCount++;
         SetColor(touchedColor);
+        Destroy(args.interactorObject.transform.gameObject);
+        countManager.Cubo();
     }
 
     private void OnHoverExited(HoverExitEventArgs args)
@@ -90,5 +92,14 @@ public sealed class TouchColorChanger : MonoBehaviour
         propertyBlock.SetColor(ColorId, color);
 
         targetRenderer.SetPropertyBlock(propertyBlock);
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Cubo"))
+        {
+            Destroy(other.gameObject);
+            countManager.Cubo();
+        }
     }
 }
