@@ -37,6 +37,7 @@ public sealed class TouchColorChanger : MonoBehaviour
     {
         interactable.hoverEntered.AddListener(OnHoverEntered);
         interactable.hoverExited.AddListener(OnHoverExited);
+        countManager = FindObjectOfType<CountManager>();
     }
 
     private void OnDisable()
@@ -50,8 +51,8 @@ public sealed class TouchColorChanger : MonoBehaviour
         Debug.Log("Hola");
         activeHoverCount++;
         SetColor(touchedColor);
-        Destroy(args.interactorObject.transform.gameObject);
         countManager.Cubo();
+        Destroy(gameObject);
     }
 
     private void OnHoverExited(HoverExitEventArgs args)
