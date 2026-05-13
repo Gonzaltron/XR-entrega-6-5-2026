@@ -93,13 +93,4 @@ public sealed class TouchColorChanger : MonoBehaviour
 
         targetRenderer.SetPropertyBlock(propertyBlock);
     }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Cubo"))
-        {
-            Destroy(other.gameObject);
-            countManager.Cubo();
-        }
-    }
 }

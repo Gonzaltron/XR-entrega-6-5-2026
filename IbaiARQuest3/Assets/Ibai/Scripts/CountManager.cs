@@ -45,7 +45,7 @@ public class CountManager : MonoBehaviour
     {
             puntosC++;
             puntos.text = puntosC.ToString();
-            if (puntosC == maxPuntos)
+            if (puntosC >= maxPuntos)
             {
                 Terminar();
             }
