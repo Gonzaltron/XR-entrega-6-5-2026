@@ -500,9 +500,9 @@ MonoBehaviour:
   m_PokeConfiguration:
     m_UseConstant: 1
     m_ConstantValue:
-      m_PokeDirection: 3
+      m_PokeDirection: 0
       m_InteractionDepthOffset: 0
-      m_EnablePokeAngleThreshold: 0
+      m_EnablePokeAngleThreshold: 1
       m_PokeAngleThreshold: 45
     m_Variable: {fileID: 0}
 --- !u!1001 &1135919392
@@ -517,6 +517,14 @@ PrefabInstance:
       propertyPath: m_Interactable
       value: 
       objectReference: {fileID: 2075042128}
+    - target: {fileID: -1621082523434170572, guid: ae662164b3b500a48a823d03d3bdef3c, type: 3}
+      propertyPath: m_PokeConfiguration.m_ConstantValue.m_PokeDirection
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1621082523434170572, guid: ae662164b3b500a48a823d03d3bdef3c, type: 3}
+      propertyPath: m_PokeConfiguration.m_ConstantValue.m_EnablePokeAngleThreshold
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1074395752505177803, guid: ae662164b3b500a48a823d03d3bdef3c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.156
