@@ -1,15 +1,19 @@
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
+using TMPro;
 
 [RequireComponent(typeof(XRSimpleInteractable))]
 public sealed class TouchColorChanger : MonoBehaviour
 {
+    [SerializeField] Canvas canvas;
+    [SerializeField] TMP_Text textMeshPro;
     [SerializeField]
     private Color touchedColor = Color.green;
 
     [SerializeField]
     private bool restoreWhenHandLeaves = true;
+    [SerializeField] GameObject hovered;
 
     [SerializeField]
     private Renderer targetRenderer;
@@ -18,7 +22,6 @@ public sealed class TouchColorChanger : MonoBehaviour
     private MaterialPropertyBlock propertyBlock;
     private Color initialColor = Color.white;
     private int activeHoverCount;
-    [SerializeField] CountManager countManager;
     private static readonly int BaseColorId = Shader.PropertyToID("_BaseColor");
     private static readonly int ColorId = Shader.PropertyToID("_Color");
 
@@ -47,11 +50,9 @@ public sealed class TouchColorChanger : MonoBehaviour
 
     private void OnHoverEntered(HoverEnterEventArgs args)
     {
-        Debug.Log("Hola");
-        activeHoverCount++;
+        textMeshPro.text = "Ir a " + args.interactorObject.transform.tag.ToString();
         SetColor(touchedColor);
-        Destroy(args.interactorObject.transform.gameObject);
-        countManager.Cubo();
+        hovered = args.interactorObject.transform.gameObject;
     }
 
     private void OnHoverExited(HoverExitEventArgs args)
@@ -60,6 +61,7 @@ public sealed class TouchColorChanger : MonoBehaviour
 
         if (restoreWhenHandLeaves && activeHoverCount == 0)
             SetColor(initialColor);
+        hovered = null;
     }
 
     private Color ReadInitialColor()
@@ -92,5 +94,13 @@ public sealed class TouchColorChanger : MonoBehaviour
         propertyBlock.SetColor(ColorId, color);
 
         targetRenderer.SetPropertyBlock(propertyBlock);
+    }
+
+    public void SelectLevel()
+    {
+        if(targetRenderer != null)
+        {
+            hovered.GetComponent<Menu>().SelectLevel();
+        }
     }
 }
