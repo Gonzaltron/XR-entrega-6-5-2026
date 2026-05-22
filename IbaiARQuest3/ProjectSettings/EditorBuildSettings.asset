@@ -9,8 +9,17 @@ EditorBuildSettings:
     path: Assets/Ibai/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
+    path: Assets/Ibai/Scenes/Scene3.unity
+    guid: ed924e05599218e429f43dae5b72a813
+  - enabled: 1
     path: Assets/Ibai/Scenes/pocho saber.unity
     guid: bd3870ad34a584c4086d92ed596b6a34
+  - enabled: 1
+    path: Assets/Ibai/Scenes/Nivel2.unity
+    guid: 54cca2933c31fd243a3ed976ef93b2ae
+  - enabled: 1
+    path: Assets/Ibai/Scenes/Nivel1.unity
+    guid: e868c73f64e4b3341924b2d1dbe07080
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
     com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: 78518ad7efbde644886a23a2561354ab, type: 2}
