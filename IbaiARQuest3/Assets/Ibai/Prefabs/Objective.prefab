@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5447825767303888669}
   - component: {fileID: 3889069884371646542}
   - component: {fileID: 8873467553303334167}
-  - component: {fileID: 1909893617196920582}
   - component: {fileID: 3103212732808322808}
   - component: {fileID: 7876536597624397368}
   - component: {fileID: 6041904583233203671}
@@ -112,21 +111,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1909893617196920582
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6520732135953658630}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f66b470c8c150a340bd67043162c9cef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  speed: 5
-  spawnPoint: {x: 0, y: 0, z: 0}
 --- !u!54 &3103212732808322808
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -241,4 +225,4 @@ MonoBehaviour:
   touchedColor: {r: 0, g: 1, b: 0, a: 1}
   restoreWhenHandLeaves: 1
   targetRenderer: {fileID: 0}
-  countManager: {fileID: 0}
+  texto: {fileID: 0}

@@ -52,11 +52,18 @@ public sealed class TouchColorChanger : MonoBehaviour
 
     private void OnHoverEntered(HoverEnterEventArgs args)
     {
-        Debug.Log("Hola");
-        activeHoverCount++;
-        SetColor(touchedColor);
-        selected = args.interactableObject.transform.gameObject;
-        texto.enabled = true;
+        if(args.interactableObject.transform.gameObject.CompareTag("Nivel1")|| args.interactableObject.transform.gameObject.CompareTag("Nivel2"))
+        {
+            Debug.Log("Hola");
+            activeHoverCount++;
+            SetColor(touchedColor);
+            selected = args.interactableObject.transform.gameObject;
+            texto.enabled = true;
+        }
+        else if(args.interactableObject.transform.gameObject.TryGetComponent<Topo>(out Topo topo))
+        {
+            topo.Points();
+        }
     }
 
     private void OnHoverExited(HoverExitEventArgs args)
