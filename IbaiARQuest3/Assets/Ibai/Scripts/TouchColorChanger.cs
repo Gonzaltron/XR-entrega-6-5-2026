@@ -35,6 +35,7 @@ public sealed class TouchColorChanger : MonoBehaviour
 
         propertyBlock = new MaterialPropertyBlock();
         initialColor = ReadInitialColor();
+        texto.enabled = false;
     }
 
     private void OnEnable()
