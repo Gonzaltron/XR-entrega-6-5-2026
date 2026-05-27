@@ -1,6 +1,8 @@
 using UnityEngine;
+using UnityEngine.Assertions.Must;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
+using TMPro;
 
 [RequireComponent(typeof(XRSimpleInteractable))]
 public sealed class TouchColorChanger : MonoBehaviour
@@ -13,12 +15,14 @@ public sealed class TouchColorChanger : MonoBehaviour
 
     [SerializeField]
     private Renderer targetRenderer;
+    [SerializeField] TMP_Text texto;
+
+    GameObject selected;
 
     private XRSimpleInteractable interactable;
     private MaterialPropertyBlock propertyBlock;
     private Color initialColor = Color.white;
     private int activeHoverCount;
-    [SerializeField] CountManager countManager;
     private static readonly int BaseColorId = Shader.PropertyToID("_BaseColor");
     private static readonly int ColorId = Shader.PropertyToID("_Color");
 
@@ -37,7 +41,6 @@ public sealed class TouchColorChanger : MonoBehaviour
     {
         interactable.hoverEntered.AddListener(OnHoverEntered);
         interactable.hoverExited.AddListener(OnHoverExited);
-        countManager = FindObjectOfType<CountManager>();
     }
 
     private void OnDisable()
@@ -51,8 +54,8 @@ public sealed class TouchColorChanger : MonoBehaviour
         Debug.Log("Hola");
         activeHoverCount++;
         SetColor(touchedColor);
-        countManager.Cubo();
-        Destroy(gameObject);
+        selected = args.interactableObject.transform.gameObject;
+        texto.enabled = true;
     }
 
     private void OnHoverExited(HoverExitEventArgs args)
@@ -61,6 +64,9 @@ public sealed class TouchColorChanger : MonoBehaviour
 
         if (restoreWhenHandLeaves && activeHoverCount == 0)
             SetColor(initialColor);
+        
+        selected = null;
+        texto.enabled = false;
     }
 
     private Color ReadInitialColor()
@@ -93,5 +99,13 @@ public sealed class TouchColorChanger : MonoBehaviour
         propertyBlock.SetColor(ColorId, color);
 
         targetRenderer.SetPropertyBlock(propertyBlock);
+    }
+
+    public void Scene()
+    {
+        if (selected != null)
+        {
+            selected.GetComponent<Menu>().SelectLevel();
+        }
     }
 }
