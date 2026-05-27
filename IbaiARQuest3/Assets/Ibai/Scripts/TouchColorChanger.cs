@@ -35,13 +35,17 @@ public sealed class TouchColorChanger : MonoBehaviour
 
         propertyBlock = new MaterialPropertyBlock();
         initialColor = ReadInitialColor();
-        texto.enabled = false;
+       
     }
 
     private void OnEnable()
     {
         interactable.hoverEntered.AddListener(OnHoverEntered);
         interactable.hoverExited.AddListener(OnHoverExited);
+        if (texto != null)
+        {
+            texto.enabled = false;
+        }
     }
 
     private void OnDisable()
@@ -56,9 +60,13 @@ public sealed class TouchColorChanger : MonoBehaviour
         {
             Debug.Log("Hola");
             activeHoverCount++;
-            SetColor(touchedColor);
+            //SetColor(touchedColor);
             selected = args.interactableObject.transform.gameObject;
-            texto.enabled = true;
+            if(texto != null)
+            {
+                texto.enabled = true;
+            }
+            Scene();
         }
         else if(args.interactableObject.transform.gameObject.TryGetComponent<Topo>(out Topo topo))
         {
@@ -71,10 +79,13 @@ public sealed class TouchColorChanger : MonoBehaviour
         activeHoverCount = Mathf.Max(0, activeHoverCount - 1);
 
         if (restoreWhenHandLeaves && activeHoverCount == 0)
-            SetColor(initialColor);
+            //SetColor(initialColor);
         
         selected = null;
-        texto.enabled = false;
+        if (texto != null)
+        {
+            texto.enabled = false;
+        }
     }
 
     private Color ReadInitialColor()

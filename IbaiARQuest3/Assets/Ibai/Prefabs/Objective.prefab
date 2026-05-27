@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3103212732808322808}
   - component: {fileID: 7876536597624397368}
   - component: {fileID: 6041904583233203671}
+  - component: {fileID: -9083349122721038164}
   m_Layer: 0
   m_Name: Objective
   m_TagString: Cubo
@@ -226,3 +227,17 @@ MonoBehaviour:
   restoreWhenHandLeaves: 1
   targetRenderer: {fileID: 0}
   texto: {fileID: 0}
+--- !u!114 &-9083349122721038164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6520732135953658630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf01900fbb39b74283c2c9fe6cbbbd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 0}
+  active: 0

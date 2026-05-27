@@ -11,7 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Ibai/Scenes/Scene3.unity
     guid: ed924e05599218e429f43dae5b72a813
-  - enabled: 1
+  - enabled: 0
     path: Assets/Ibai/Scenes/pocho saber.unity
     guid: bd3870ad34a584c4086d92ed596b6a34
   - enabled: 1
